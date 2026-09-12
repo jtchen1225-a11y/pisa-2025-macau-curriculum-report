@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PISA 2025 澳門數據與校本課程改革分析 | 行政會議匯報網頁版</title>
+  <meta name="description" content="以課程發展助理主任角度，基於 OECD PISA 2025 澳門數據與全球標竿，深度診斷素養斷層、學習動機危機與 AI 時代課程重構之行政決策報告。">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              500: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+              navy: '#0A2540',
+              deep: '#1A365D',
+              slate: '#2B6CB0',
+            },
+            accent: {
+              red: '#C53030',
+              gold: '#D69E2E',
+              green: '#2F855A'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&display=swap');
+    body {
+      font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 3px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+    /* Presenter Mode Styling */
+    body.presenter-mode {
+      font-size: 1.08rem;
+    }
+    body.presenter-mode .presenter-focus {
+      border: 2px solid #0284c7 !important;
+      box-shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.2);
+    }
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+      body {
+        font-size: 11pt;
+        background: white;
+        color: black;
+      }
+      .page-break {
+        page-break-before: always;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
+
+  <!-- TOP EXECUTIVE BANNER -->
+  <header class="bg-gradient-to-r from-brand-navy via-brand-deep to-brand-slate text-white shadow-xl sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center space-x-3">
+        <div class="bg-blue-500/20 border border-blue-400/30 p-2 rounded-lg text-blue-300">
+          <i class="fa-solid fa-graduation-cap text-xl"></i>
+        </div>
+        <div>
+          <div class="flex items-center space-x-2">
+            <span class="bg-amber-400/20 text-amber-300 border border-amber-400/40 text-xs font-semibold px-2.5 py-0.5 rounded-full">
+              校本課程發展處 · 行政會議專題匯報
+            </span>
+            <span class="text-xs text-slate-300 hidden sm:inline">OECD PISA 2025 實證診斷</span>
+          </div>
+          <h1 class="text-lg sm:text-xl font-bold tracking-tight text-white mt-0.5">
+            從國際標竿到校本課堂：PISA 2025 澳門數據與課程改革行動藍圖
+          </h1>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center space-x-2 sm:space-x-3">
+        <button id="presenterBtn" onclick="togglePresenterMode()" class="flex items-center space-x-1.5 bg-sky-600 hover:bg-sky-500 text-white text-xs sm:text-sm font-medium px-3.5 py-2 rounded-lg transition shadow-sm">
+          <i class="fa-solid fa-chalkboard-user"></i>
+          <span id="presenterBtnText">會議匯報模式</span>
+        </button>
+        <button onclick="window.print()" class="flex items-center space-x-1.5 bg-slate-700/80 hover:bg-slate-600 text-slate-200 text-xs sm:text-sm font-medium px-3.5 py-2 rounded-lg transition">
+          <i class="fa-solid fa-print"></i>
+          <span class="hidden sm:inline">列印 / 匯出</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Navigation Sub-bar -->
+    <nav class="bg-slate-900/90 backdrop-blur border-t border-slate-700/60 px-4 sm:px-6 lg:px-8 overflow-x-auto custom-scrollbar">
+      <div class="max-w-7xl mx-auto flex space-x-6 sm:space-x-8 text-xs sm:text-sm whitespace-nowrap py-2.5 font-medium text-slate-300">
+        <a href="#summary" class="hover:text-sky-400 transition flex items-center gap-1.5"><i class="fa-solid fa-chart-pie text-sky-400"></i> 核心立論與指標</a>
+        <a href="#benchmarks" class="hover:text-sky-400 transition flex items-center gap-1.5"><i class="fa-solid fa-globe text-emerald-400"></i> 四大領域與東亞標竿</a>
+        <a href="#contradictions" class="hover:text-sky-400 transition flex items-center gap-1.5"><i class="fa-solid fa-triangle-exclamation text-amber-400"></i> 五大深層矛盾診斷</a>
+        <a href="#diagnostics" class="hover:text-sky-400 transition flex items-center gap-1.5"><i class="fa-solid fa-code-fork text-purple-400"></i> 三岔路口診斷決策</a>
+        <a href="#progression" class="hover:text-sky-400 transition flex items-center gap-1.5"><i class="fa-solid fa-stairs text-blue-400"></i> P1–S6 逆向貫通</a>
+        <a href="#matrix" class="hover:text-sky-400 transition flex items-center gap-1.5"><i class="fa-solid fa-table-cells-large text-indigo-400"></i> 10 維度改革矩陣</a>
+        <a href="#mtss" class="hover:text-sky-400 transition flex items-center gap-1.5"><i class="fa-solid fa-layer-group text-teal-400"></i> MTSS 支援與 AI</a>
+        <a href="#roadmap" class="hover:text-sky-400 transition flex items-center gap-1.5"><i class="fa-solid fa-calendar-check text-rose-400"></i> 2026–2028 路徑圖</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+
+    <!-- SECTION 0: EXECUTIVE SUMMARY & KPI CARDS -->
+    <section id="summary" class="scroll-mt-28 space-y-6">
+      <!-- Role and Core Hypothesis Callout -->
+      <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl -z-0"></div>
+        <div class="relative z-10">
+          <div class="flex flex-wrap items-center justify-between gap-4 mb-4 pb-4 border-b border-slate-100">
+            <div>
+              <span class="text-xs uppercase tracking-wider font-bold text-sky-600 bg-sky-50 px-2.5 py-1 rounded">Executive Perspective</span>
+              <h2 class="text-xl sm:text-2xl font-black text-brand-navy mt-1">
+                「為甚麼澳門成績好？」轉向「高成就背後存在哪些深層問題？本校能學到甚麼？」
+              </h2>
+            </div>
+            <div class="text-right text-xs text-slate-500">
+              <div>報告人：課程發展助理主任</div>
+              <div>匯報對象：校長室、教務委員會、各學科組長</div>
+            </div>
+          </div>
+
+          <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+            OECD 於 2026 年 9 月 8 日正式公布 PISA 2025 評估結果。澳門 15 歲學生在四大領域表現卓越：數學 549（全球第3）、科學 541（全球第3）、閱讀 501（全球第5），首次公佈的運算解難（CPS）更以 <strong>572 分奪得全球第一</strong>！然而，行政管理層絕不可將此視為單純的榮譽巡禮。<strong>平均數是極度危險的遮羞布</strong>：數理持平但閱讀重跌 9 分、高低分層差距顯著拉開、僅 58.1% 學生喜歡在校學新事物、AI 高頻使用下的「認知外包」以及課堂數位分心帶來的 24 分重挫代價，為本校 P1–S6 課程重構敲響了警鐘。
+          </p>
+        </div>
+      </div>
+
+      <!-- 8 METRIC CARDS -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5">
+        <!-- Card 1: CPS -->
+        <div class="bg-white rounded-xl p-5 shadow-sm border-l-4 border-emerald-500 border border-slate-100 flex flex-col justify-between hover:shadow-md transition">
+          <div class="flex justify-between items-start">
+            <span class="text-xs font-semibold text-slate-500">運算解難 (CPS)</span>
+            <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded-full">全球第 1 🥇</span>
+          </div>
+          <div class="mt-2">
+            <div class="text-3xl font-black text-slate-900">572 <span class="text-xs font-normal text-slate-500">分</span></div>
+            <div class="text-xs text-slate-600 mt-1">OECD 均分 500 (+72分)</div>
+          </div>
+          <div class="mt-3 pt-2 border-t border-slate-100 text-[11px] text-emerald-700 font-medium">
+            <i class="fa-solid fa-arrow-trend-up"></i> 尖子 (Level 5-6) 佔 53.7% (全球最高)
+          </div>
+        </div>
+
+        <!-- Card 2: Math -->
+        <div class="bg-white rounded-xl p-5 shadow-sm border-l-4 border-blue-600 border border-slate-100 flex flex-col justify-between hover:shadow-md transition">
+          <div class="flex justify-between items-start">
+            <span class="text-xs font-semibold text-slate-500">數學素養 (Math)</span>
+            <span class="bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-0.5 rounded-full">全球第 3 🥉</span>
+          </div>
+          <div class="mt-2">
+            <div class="text-3xl font-black text-slate-900">549 <span class="text-xs font-normal text-slate-500">分</span></div>
+            <div class="text-xs text-slate-600 mt-1">OECD 均分 463 (+86分)</div>
+          </div>
+          <div class="mt-3 pt-2 border-t border-slate-100 text-[11px] text-blue-700 font-medium">
+            <i class="fa-solid fa-minus"></i> 較 2022 微幅 -3分 (頂尖佔 29%)
+          </div>
+        </div>
+
+        <!-- Card 3: Science -->
+        <div class="bg-white rounded-xl p-5 shadow-sm border-l-4 border-cyan-600 border border-slate-100 flex flex-col justify-between hover:shadow-md transition">
+          <div class="flex justify-between items-start">
+            <span class="text-xs font-semibold text-slate-500">科學素養 (Science)</span>
+            <span class="bg-cyan-100 text-cyan-800 text-[10px] font-bold px-2 py-0.5 rounded-full">全球第 3 🥉</span>
+          </div>
+          <div class="mt-2">
+            <div class="text-3xl font-black text-slate-900">541 <span class="text-xs font-normal text-slate-500">分</span></div>
+            <div class="text-xs text-slate-600 mt-1">OECD 均分 482 (+59分)</div>
+          </div>
+          <div class="mt-3 pt-2 border-t border-slate-100 text-[11px] text-cyan-800 font-medium">
+            <i class="fa-solid fa-shield-halved"></i> 低成就 &lt;L2 僅 7.9% (OECD 24%)
+          </div>
+        </div>
+
+        <!-- Card 4: Reading -->
+        <div class="bg-white rounded-xl p-5 shadow-sm border-l-4 border-rose-500 border border-slate-100 flex flex-col justify-between hover:shadow-md transition bg-rose-50/20">
+          <div class="flex justify-between items-start">
+            <span class="text-xs font-semibold text-rose-700">閱讀素養 (Reading)</span>
+            <span class="bg-rose-100 text-rose-800 text-[10px] font-bold px-2 py-0.5 rounded-full">顯著下滑 ⚠️</span>
+          </div>
+          <div class="mt-2">
+            <div class="text-3xl font-black text-rose-600">501 <span class="text-xs font-normal text-slate-500">分</span></div>
+            <div class="text-xs text-slate-600 mt-1">全球第 5 (OECD 461)</div>
+          </div>
+          <div class="mt-3 pt-2 border-t border-rose-100 text-[11px] text-rose-700 font-bold">
+            <i class="fa-solid fa-arrow-trend-down"></i> 較 2022 顯著下降 9分 (510→501)
+          </div>
+        </div>
+
+        <!-- Card 5: Equity -->
+        <div class="bg-white rounded-xl p-5 shadow-sm border-l-4 border-indigo-500 border border-slate-100 flex flex-col justify-between hover:shadow-md transition">
+          <div class="flex justify-between items-start">
+            <span class="text-xs font-semibold text-slate-500">教育公平 (Equity)</span>
+            <span class="bg-indigo-100 text-indigo-800 text-[10px] font-bold px-2 py-0.5 rounded-full">全球典範 🌟</span>
+          </div>
+          <div class="mt-2">
+            <div class="text-3xl font-black text-slate-900">4% <span class="text-xs font-normal text-slate-500">變異解釋</span></div>
+            <div class="text-xs text-slate-600 mt-1">OECD 平均為 12%</div>
+          </div>
+          <div class="mt-3 pt-2 border-t border-slate-100 text-[11px] text-indigo-700 font-medium">
+            <i class="fa-solid fa-user-shield"></i> 學術韌性學生達 19% (逆境拔尖)
+          </div>
+        </div>
+
+        <!-- Card 6: Engagement -->
+        <div class="bg-white rounded-xl p-5 shadow-sm border-l-4 border-amber-500 border border-slate-100 flex flex-col justify-between hover:shadow-md transition bg-amber-50/20">
+          <div class="flex justify-between items-start">
+            <span class="text-xs font-semibold text-amber-800">在校學習樂趣</span>
+            <span class="bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded-full">文化警訊 ⚠️</span>
+          </div>
+          <div class="mt-2">
+            <div class="text-3xl font-black text-amber-600">58.1% <span class="text-xs font-normal text-slate-500">佔比</span></div>
+            <div class="text-xs text-slate-600 mt-1">OECD 平均高達 68.8%</div>
+          </div>
+          <div class="mt-3 pt-2 border-t border-amber-100 text-[11px] text-amber-800 font-bold">
+            <i class="fa-solid fa-face-frown"></i> 落後 OECD 10.7% (高成就低投入)
+          </div>
+        </div>
+
+        <!-- Card 7: AI Use -->
+        <div class="bg-white rounded-xl p-5 shadow-sm border-l-4 border-purple-500 border border-slate-100 flex flex-col justify-between hover:shadow-md transition">
+          <div class="flex justify-between items-start">
+            <span class="text-xs font-semibold text-slate-500">AI 每週使用率</span>
+            <span class="bg-purple-100 text-purple-800 text-[10px] font-bold px-2 py-0.5 rounded-full">極高滲透 🤖</span>
+          </div>
+          <div class="mt-2">
+            <div class="text-3xl font-black text-purple-700">67% <span class="text-xs font-normal text-slate-500">週使用者</span></div>
+            <div class="text-xs text-slate-600 mt-1">OECD 平均 46% (從不用僅 5%)</div>
+          </div>
+          <div class="mt-3 pt-2 border-t border-slate-100 text-[11px] text-purple-700 font-medium">
+            <i class="fa-solid fa-pen-clip"></i> 40% 用於作業初稿 (防認知外包)
+          </div>
+        </div>
+
+        <!-- Card 8: Distraction -->
+        <div class="bg-white rounded-xl p-5 shadow-sm border-l-4 border-red-500 border border-slate-100 flex flex-col justify-between hover:shadow-md transition bg-red-50/20">
+          <div class="flex justify-between items-start">
+            <span class="text-xs font-semibold text-red-700">數位干擾成績代價</span>
+            <span class="bg-red-100 text-red-800 text-[10px] font-bold px-2 py-0.5 rounded-full">高昂代價 ⚡</span>
+          </div>
+          <div class="mt-2">
+            <div class="text-3xl font-black text-red-600">-24 <span class="text-xs font-normal text-slate-500">分損耗</span></div>
+            <div class="text-xs text-slate-600 mt-1">OECD 受干擾損耗僅 -11分</div>
+          </div>
+          <div class="mt-3 pt-2 border-t border-red-100 text-[11px] text-red-700 font-bold">
+            <i class="fa-solid fa-triangle-exclamation"></i> 課堂分心代價高達 OECD 兩倍
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 1: BENCHMARKS & RADAR VISUALIZATION -->
+    <section id="benchmarks" class="scroll-mt-28 space-y-6">
+      <div class="border-b border-slate-200 pb-3 flex items-center justify-between">
+        <div>
+          <span class="text-xs font-bold text-sky-600 uppercase tracking-wider">Chapter 1 · Macro Comparison</span>
+          <h3 class="text-2xl font-black text-brand-navy">四大領域成績與東亞高表現體系跨域標竿</h3>
+        </div>
+        <div class="text-xs text-slate-500 hidden sm:block">資料來源：OECD PISA 2025 Database & StatLink</div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- Left: Bar Chart (7 cols) -->
+        <div class="lg:col-span-7 bg-white rounded-xl p-6 shadow-sm border border-slate-200">
+          <div class="flex justify-between items-center mb-4">
+            <h4 class="text-base font-bold text-slate-900 flex items-center gap-2">
+              <i class="fa-solid fa-chart-column text-brand-500"></i> 東亞六大高表現經濟體四大領域分數比對
+            </h4>
+            <span class="text-xs text-slate-400">滿分約 650+</span>
+          </div>
+          <div class="h-80 relative">
+            <canvas id="benchmarkChart"></canvas>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex flex-wrap gap-4 text-xs text-slate-600">
+            <span class="flex items-center gap-1.5"><span class="w-3 h-3 bg-blue-600 rounded"></span> 數學 (Math)</span>
+            <span class="flex items-center gap-1.5"><span class="w-3 h-3 bg-cyan-500 rounded"></span> 科學 (Science)</span>
+            <span class="flex items-center gap-1.5"><span class="w-3 h-3 bg-rose-500 rounded"></span> 閱讀 (Reading)</span>
+            <span class="flex items-center gap-1.5"><span class="w-3 h-3 bg-emerald-500 rounded"></span> 運算解難 (CPS)</span>
+          </div>
+        </div>
+
+        <!-- Right: Radar & Key Finding (5 cols) -->
+        <div class="lg:col-span-5 bg-white rounded-xl p-6 shadow-sm border border-slate-200 flex flex-col justify-between">
+          <div>
+            <h4 class="text-base font-bold text-slate-900 flex items-center gap-2 mb-3">
+              <i class="fa-solid fa-bullseye text-indigo-500"></i> 澳門教育系統特徵多維雷達畫像
+            </h4>
+            <div class="h-64 relative">
+              <canvas id="radarChart"></canvas>
+            </div>
+          </div>
+          <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 mt-3 text-xs text-slate-700 leading-relaxed">
+            <span class="font-bold text-brand-navy"><i class="fa-solid fa-lightbulb text-amber-500"></i> 標竿啟示：</span>
+            澳門在 CPS 運算解難（572）與教育公平性（4% 變異）居全球頂峰，但在「閱讀素養（501）」與「學習樂趣（58.1%）」上明顯落後於新加坡與日本。新加坡兼具高閱讀（540+）與高數理，關鍵在於落實學科深度閱讀；本校應向新加坡汲取跨學科閱讀與情境論證經驗。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: 5 CORE CONTRADICTIONS -->
+    <section id="contradictions" class="scroll-mt-28 space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-bold text-rose-600 uppercase tracking-wider">Chapter 2 · Deep Diagnostics</span>
+        <h3 class="text-2xl font-black text-brand-navy">澳門 PISA 2025 揭示的「五大深層矛盾」與校本批判反思</h3>
+        <p class="text-sm text-slate-500 mt-1">穿透均分迷思，精準鎖定制約我校學生長期發展的核心病灶與改革抓手</p>
+      </div>
+
+      <!-- 5 Cards Accordion / Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        
+        <!-- Contradiction 1 -->
+        <div class="bg-white rounded-xl p-5 shadow-sm border border-slate-200 hover:border-blue-400 transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2.5 py-1 rounded">矛盾一 · 均分陷阱</span>
+              <i class="fa-solid fa-arrows-split-up-and-left text-blue-500"></i>
+            </div>
+            <h4 class="text-base font-bold text-slate-900 mb-2">高平均分掩蓋下的「兩極化分流」隱患</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              澳門數學均分 549，Level 5-6 頂尖學生高達 29%，但科學低成就（&lt;L2）仍有 7.9%，且 2022-2025 年最低 10%（P10）與最高 10%（P90）差距顯著擴大。班級平均分 75 分常由「95 分與 55 分極端分化」構成，是危險的遮羞布。
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 bg-blue-50/50 -mx-5 -mb-5 p-4 rounded-b-xl">
+            <span class="text-xs font-bold text-blue-900">校本對策：</span>
+            <span class="text-xs text-blue-800">教學評量儀表板全面廢除單一均分，改為強制追蹤 P10/P90 離散度與後 20% 脫困率。</span>
+          </div>
+        </div>
+
+        <!-- Contradiction 2 -->
+        <div class="bg-white rounded-xl p-5 shadow-sm border border-rose-200 bg-rose-50/10 hover:border-rose-400 transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="bg-rose-100 text-rose-800 text-xs font-bold px-2.5 py-1 rounded">矛盾二 · 閱讀滑落</span>
+              <i class="fa-solid fa-book-open-reader text-rose-500"></i>
+            </div>
+            <h4 class="text-base font-bold text-slate-900 mb-2">數理高光 vs 閱讀滑落（-9分）的素養警訊</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              數理維持平穩，閱讀卻顯著滑落 9 分至 501。閱讀絕非單純中英文科之責！高階數理需要讀懂長題幹、非連續圖表與提取變量。學生讀不懂情境，數學建模便無從談起，暴露「學科素養閱讀（Disciplinary Literacy）」嚴重斷層。
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-rose-100 bg-rose-50/50 -mx-5 -mb-5 p-4 rounded-b-xl">
+            <span class="text-xs font-bold text-rose-900">校本對策：</span>
+            <span class="text-xs text-rose-800">數學教學範式由「計算刷題」躍升至「情境解讀 → 資訊篩選 → 建模 → 推理 → 運算 → 評估」。</span>
+          </div>
+        </div>
+
+        <!-- Contradiction 3 -->
+        <div class="bg-white rounded-xl p-5 shadow-sm border border-slate-200 hover:border-indigo-400 transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="bg-indigo-100 text-indigo-800 text-xs font-bold px-2.5 py-1 rounded">矛盾三 · 底線拉大</span>
+              <i class="fa-solid fa-scale-unbalanced-flip text-indigo-500"></i>
+            </div>
+            <h4 class="text-base font-bold text-slate-900 mb-2">卓越公平下的「底線拉大」危機</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              社經背景變異僅解釋 4%，弱勢拔尖的「學術韌性學生」高達 19%，屬世界典範。然而 2015-2025 年間優勢與弱勢群體差距擴大，前沿科技教學易使文化資本豐富者更快速拉大領先優勢，弱勢底線面臨失守風險。
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 bg-indigo-50/50 -mx-5 -mb-5 p-4 rounded-b-xl">
+            <span class="text-xs font-bold text-indigo-900">校本對策：</span>
+            <span class="text-xs text-indigo-800">確立核心戰略 KPI：「提升上限（拔尖），同時守住且墊高下限（保底）」，建構 MTSS 架構。</span>
+          </div>
+        </div>
+
+        <!-- Contradiction 4 -->
+        <div class="bg-white rounded-xl p-5 shadow-sm border border-slate-200 hover:border-amber-400 transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="bg-amber-100 text-amber-800 text-xs font-bold px-2.5 py-1 rounded">矛盾四 · 情感沙漠</span>
+              <i class="fa-solid fa-heart-crack text-amber-500"></i>
+            </div>
+            <h4 class="text-base font-bold text-slate-900 mb-2">「高成就 × 低投入」的學習文化死結</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              僅 58.1% 學生表示喜歡在校學新事物（OECD 68.8%），歸屬感指數偏低。應試密集訓練雖然塑造了高效的「做題機器」，卻讓學生喪失對未知問題的探究慾望與成長型思維，一旦離開監督即陷入求知倦怠。
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 bg-amber-50/50 -mx-5 -mb-5 p-4 rounded-b-xl">
+            <span class="text-xs font-bold text-amber-900">校本對策：</span>
+            <span class="text-xs text-amber-800">引入跨學科真實問題探究（PBL），在課堂建立「富有創見的試錯（Productive Failure）」文化。</span>
+          </div>
+        </div>
+
+        <!-- Contradiction 5 -->
+        <div class="bg-white rounded-xl p-5 shadow-sm border border-purple-200 bg-purple-50/10 hover:border-purple-400 transition flex flex-col justify-between md:col-span-2 lg:col-span-2">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="bg-purple-100 text-purple-800 text-xs font-bold px-2.5 py-1 rounded">矛盾五 · 認知外包與數位代價</span>
+              <i class="fa-solid fa-brain text-purple-500"></i>
+            </div>
+            <h4 class="text-base font-bold text-slate-900 mb-2">AI 普及率 67% 下的認知外包 vs 數位干擾 -24 分重挫代價</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-slate-600 mt-2">
+              <div class="bg-white p-3 rounded-lg border border-purple-100">
+                <span class="font-bold text-purple-900 block mb-1">🤖 AI Replacing vs Supporting Thinking</span>
+                40% 學生使用 AI 代寫作業初稿、41% 做摘要。若只是複製答案（認知外包），將直接導致思維萎縮；AI 必須被引導作為批判論證的腳手架。
+              </div>
+              <div class="bg-white p-3 rounded-lg border border-red-100">
+                <span class="font-bold text-red-900 block mb-1">⚡ 數位干擾的殘酷代價</span>
+                澳門受數位干擾學生僅 13%，但在控制社經後，受干擾者科學成績<strong>重挫 24 分</strong>（OECD 僅 11 分），顯示密集課堂中分心代價極為沉重！
+              </div>
+            </div>
+          </div>
+          <div class="mt-4 pt-3 border-t border-purple-100 bg-purple-50/50 -mx-5 -mb-5 p-4 rounded-b-xl">
+            <span class="text-xs font-bold text-purple-900">校本對策：</span>
+            <span class="text-xs text-purple-800">全校作業全面推行「Q-V-R-E-R 批判思考五步法」，課堂實施「3D 數位專注管控（任務驅動 + 螢幕紀律 + 軌跡診斷）」。</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: THREE-LEVEL DIAGNOSTIC DECISION TREE -->
+    <section id="diagnostics" class="scroll-mt-28 space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-bold text-purple-600 uppercase tracking-wider">Chapter 3 · School Diagnostics</span>
+        <h3 class="text-2xl font-black text-brand-navy">三層落地推進架構與「三岔路口」校本審計決策樹</h3>
+        <p class="text-sm text-slate-500 mt-1">拒絕盲目加課刷題，精準區分是「沒教」、「沒考」還是「教了考了學生仍不會」</p>
+      </div>
+
+      <!-- Diagnostic Process Flow -->
+      <div class="bg-slate-900 text-white rounded-xl p-6 shadow-md">
+        <div class="text-xs text-sky-400 font-semibold uppercase tracking-wider mb-2">Curriculum Audit Closed Loop</div>
+        <div class="flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm font-medium">
+          <div class="bg-slate-800 border border-slate-700 px-3 py-2 rounded-lg text-center flex-1 min-w-[120px]">
+            <i class="fa-solid fa-compass text-sky-400 mb-1 block"></i> PISA Benchmark
+          </div>
+          <i class="fa-solid fa-arrow-right text-slate-500 hidden sm:inline"></i>
+          <div class="bg-slate-800 border border-slate-700 px-3 py-2 rounded-lg text-center flex-1 min-w-[120px]">
+            <i class="fa-solid fa-map text-emerald-400 mb-1 block"></i> Curriculum Mapping
+          </div>
+          <i class="fa-solid fa-arrow-right text-slate-500 hidden sm:inline"></i>
+          <div class="bg-slate-800 border border-slate-700 px-3 py-2 rounded-lg text-center flex-1 min-w-[120px]">
+            <i class="fa-solid fa-file-signature text-amber-400 mb-1 block"></i> School Assessment
+          </div>
+          <i class="fa-solid fa-arrow-right text-slate-500 hidden sm:inline"></i>
+          <div class="bg-slate-800 border border-slate-700 px-3 py-2 rounded-lg text-center flex-1 min-w-[120px]">
+            <i class="fa-solid fa-chart-line text-purple-400 mb-1 block"></i> Student Performance
+          </div>
+          <i class="fa-solid fa-arrow-right text-slate-500 hidden sm:inline"></i>
+          <div class="bg-slate-800 border border-slate-700 px-3 py-2 rounded-lg text-center flex-1 min-w-[120px]">
+            <i class="fa-solid fa-person-chalkboard text-cyan-400 mb-1 block"></i> Teaching Practice
+          </div>
+          <i class="fa-solid fa-arrow-right text-slate-500 hidden sm:inline"></i>
+          <div class="bg-sky-600 text-white px-3 py-2 rounded-lg text-center flex-1 min-w-[120px] font-bold">
+            <i class="fa-solid fa-arrows-rotate text-white mb-1 block"></i> Curriculum Reform
+          </div>
+        </div>
+      </div>
+
+      <!-- 3-Way Decision Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <!-- Path A -->
+        <div class="bg-white rounded-xl p-5 border-t-4 border-amber-500 shadow-sm border border-slate-200">
+          <div class="text-xs font-bold text-amber-700 bg-amber-50 px-2.5 py-1 rounded inline-block mb-2">情境 A</div>
+          <h4 class="text-base font-bold text-slate-900 mb-2">大綱寫了，但教師課堂沒教</h4>
+          <div class="space-y-2 text-xs text-slate-600">
+            <div class="bg-slate-50 p-2.5 rounded border border-slate-100">
+              <span class="font-semibold text-slate-700">根因判定：</span>
+              <strong>課程實施（Implementation）問題</strong>。進度課時受壓，或教師缺乏情境建模示範教案。
+            </div>
+            <div class="bg-amber-50/50 p-2.5 rounded border border-amber-100 text-amber-900">
+              <span class="font-semibold">管理處方：</span>
+              重構科組共同備課機制，提供課堂建模示範教案庫，適當精簡重複機械內容，釋放探究課時。
+            </div>
+          </div>
+        </div>
+
+        <!-- Path B -->
+        <div class="bg-white rounded-xl p-5 border-t-4 border-rose-500 shadow-sm border border-slate-200">
+          <div class="text-xs font-bold text-rose-700 bg-rose-50 px-2.5 py-1 rounded inline-block mb-2">情境 B</div>
+          <h4 class="text-base font-bold text-slate-900 mb-2">課堂教了，但校內段考不考</h4>
+          <div class="space-y-2 text-xs text-slate-600">
+            <div class="bg-slate-50 p-2.5 rounded border border-slate-100">
+              <span class="font-semibold text-slate-700">根因判定：</span>
+              <strong>評量對齊（Assessment Alignment）脫節</strong>。段考仍依賴傳統題庫，考題與教學兩張皮。
+            </div>
+            <div class="bg-rose-50/50 p-2.5 rounded border border-rose-100 text-rose-900">
+              <span class="font-semibold">管理處方：</span>
+              建立命題雙向細目表，硬性規定情境建模與論證題型<strong>佔比不低於 35%</strong>，以考促教。
+            </div>
+          </div>
+        </div>
+
+        <!-- Path C -->
+        <div class="bg-white rounded-xl p-5 border-t-4 border-blue-500 shadow-sm border border-slate-200">
+          <div class="text-xs font-bold text-blue-700 bg-blue-50 px-2.5 py-1 rounded inline-block mb-2">情境 C</div>
+          <h4 class="text-base font-bold text-slate-900 mb-2">教了考了，但學生得分率極低</h4>
+          <div class="space-y-2 text-xs text-slate-600">
+            <div class="bg-slate-50 p-2.5 rounded border border-slate-100">
+              <span class="font-semibold text-slate-700">根因判定：</span>
+              <strong>學習與認知（Pedagogy & Cognitive）失效</strong>。認知負荷過載、學科閱讀受阻或概念斷層。
+            </div>
+            <div class="bg-blue-50/50 p-2.5 rounded border border-blue-100 text-blue-900">
+              <span class="font-semibold">管理處方：</span>
+              診斷前置概念短板，搭建思維腳手架（Scaffolding），啟動 MTSS 第二層小組精準補強。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: P1-S6 VERTICAL PROGRESSION & CHASMS -->
+    <section id="progression" class="scroll-mt-28 space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-bold text-blue-600 uppercase tracking-wider">Chapter 4 · Vertical Alignment</span>
+        <h3 class="text-2xl font-black text-brand-navy">P1–S6 逆向貫通設計與四大銜接學習斷層破解</h3>
+        <p class="text-sm text-slate-500 mt-1">15 歲的高階思維與運算解難，必須自小學一年級起循序漸進養成，杜絕學段割裂</p>
+      </div>
+
+      <!-- 4 Stages Tabs / Timeline -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <!-- Stage 1 -->
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative">
+          <div class="text-xs font-bold text-slate-400 mb-1">第一學段 · P1–P3</div>
+          <h4 class="text-sm font-bold text-brand-navy mb-2 flex items-center gap-1.5">
+            <i class="fa-solid fa-shapes text-emerald-500"></i> 啟蒙具象期
+          </h4>
+          <ul class="text-xs text-slate-600 space-y-1.5 list-disc pl-4">
+            <li>具體實物操作與直觀數感培養</li>
+            <li>圖形、算式與語言雙向互譯</li>
+            <li>口頭解釋「我是怎麼想出來的」</li>
+            <li>非插電運算邏輯遊戲（Unplugged）</li>
+          </ul>
+        </div>
+
+        <!-- Stage 2 -->
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative">
+          <div class="text-xs font-bold text-slate-400 mb-1">第二學段 · P4–P6</div>
+          <h4 class="text-sm font-bold text-brand-navy mb-2 flex items-center gap-1.5">
+            <i class="fa-solid fa-chart-diagram text-blue-500"></i> 過渡抽象期
+          </h4>
+          <ul class="text-xs text-slate-600 space-y-1.5 list-disc pl-4">
+            <li>算術思維向初等代數思維過渡</li>
+            <li>多模態長題幹與非連續圖表解讀</li>
+            <li>兩至三步推理證明與驗證步驟</li>
+            <li>Scratch 圖形化編程與模組化拆解</li>
+          </ul>
+        </div>
+
+        <!-- Stage 3 -->
+        <div class="bg-white p-5 rounded-xl border-2 border-sky-500 shadow-sm relative bg-sky-50/20">
+          <div class="absolute -top-3 right-3 bg-sky-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">PISA 關鍵期</div>
+          <div class="text-xs font-bold text-sky-700 mb-1">第三學段 · S1–S3</div>
+          <h4 class="text-sm font-bold text-brand-navy mb-2 flex items-center gap-1.5">
+            <i class="fa-solid fa-network-wired text-sky-600"></i> 建模分化期
+          </h4>
+          <ul class="text-xs text-slate-600 space-y-1.5 list-disc pl-4">
+            <li>學科素養閱讀（Disciplinary Literacy）</li>
+            <li>真實生活情境數學建模與論證</li>
+            <li><strong>防範初二 (S2) 幾何代數斷層</strong></li>
+            <li>Python 文字編程與 AI 質疑實踐</li>
+          </ul>
+        </div>
+
+        <!-- Stage 4 -->
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative">
+          <div class="text-xs font-bold text-slate-400 mb-1">第四學段 · S4–S6</div>
+          <h4 class="text-sm font-bold text-brand-navy mb-2 flex items-center gap-1.5">
+            <i class="fa-solid fa-microscope text-purple-500"></i> 深化探究期
+          </h4>
+          <ul class="text-xs text-slate-600 space-y-1.5 list-disc pl-4">
+            <li>微積分與機率統計之高階直覺</li>
+            <li>跨學科專題研究（PBL）與論文研讀</li>
+            <li>多變量複雜動態系統模擬</li>
+            <li>AI 輔助研究與獨立科研自主性</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 4 Chasms Warning Box -->
+      <div class="bg-white rounded-xl p-5 border border-slate-200 shadow-sm">
+        <h4 class="text-sm font-bold text-slate-900 mb-3 flex items-center gap-2">
+          <i class="fa-solid fa-triangle-exclamation text-amber-500"></i> 中小學縱向銜接四大「學習斷層（Learning Chasms）」阻截策略
+        </h4>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+          <div class="p-3 rounded-lg bg-slate-50 border border-slate-100">
+            <span class="font-bold text-slate-800 block mb-1">① P3 升 P4 抽象斷崖</span>
+            小數、分數與面積幾何湧現。全面導入新加坡 CPA 具象化模型，杜絕純死記硬背。
+          </div>
+          <div class="p-3 rounded-lg bg-slate-50 border border-slate-100">
+            <span class="font-bold text-slate-800 block mb-1">② P6 升 S1 題幹閱讀斷層</span>
+            題幹大幅拉長。初一開學前 4 週強制設置「學科閱讀與情境破題銜接專題」。
+          </div>
+          <div class="p-3 rounded-lg bg-rose-50 border border-rose-200 text-rose-950">
+            <span class="font-bold text-rose-800 block mb-1">③ S2 升 S3 演繹分水嶺 ⚠️</span>
+            幾何公理證明與二次函數爆發，全校不及格重災區。全面啟動 MTSS 二級小組補強！
+          </div>
+          <div class="p-3 rounded-lg bg-slate-50 border border-slate-100">
+            <span class="font-bold text-slate-800 block mb-1">④ S3 升 S4 文理分化斷層</span>
+            普及轉向專修。以跨學科專題研究（PBL）鏈接現實生活，守護學生的科學探索熱情。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: 10-DIMENSION MATRIX -->
+    <section id="matrix" class="scroll-mt-28 space-y-6">
+      <div class="border-b border-slate-200 pb-3 flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold text-indigo-600 uppercase tracking-wider">Chapter 5 · Strategy Matrix</span>
+          <h3 class="text-2xl font-black text-brand-navy">《PISA 2025 澳門 × 本校課程改革分析矩陣》</h3>
+          <p class="text-sm text-slate-500 mt-0.5">供行政會議各部門協同推進之行動指導依據（支援實時搜尋與部門篩選）</p>
+        </div>
+        <!-- Search & Filter Controls -->
+        <div class="flex items-center gap-2">
+          <div class="relative">
+            <input type="text" id="matrixSearch" onkeyup="filterMatrix()" placeholder="搜尋關鍵字（如：閱讀, AI...）" class="text-xs px-3 py-1.5 pl-8 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 w-48 sm:w-60">
+            <i class="fa-solid fa-magnifying-glass absolute left-2.5 top-2.5 text-slate-400 text-xs"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Matrix Table Container -->
+      <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-x-auto custom-scrollbar">
+        <table class="min-w-full divide-y divide-slate-200 text-xs text-left" id="matrixTable">
+          <thead class="bg-brand-navy text-white font-semibold">
+            <tr>
+              <th scope="col" class="py-3 px-4 w-28">分析維度</th>
+              <th scope="col" class="py-3 px-4 w-44">澳門 PISA 2025 核心發現</th>
+              <th scope="col" class="py-3 px-4 w-44">本校教務與科組必問核心問題</th>
+              <th scope="col" class="py-3 px-4">具體校本改革行動方案</th>
+              <th scope="col" class="py-3 px-4 w-36">責任科組 / 指標</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 text-slate-700" id="matrixBody">
+            <!-- Row 1 -->
+            <tr class="hover:bg-slate-50/80 transition">
+              <td class="py-3 px-4 font-bold text-brand-deep">① Achievement<br><span class="text-[10px] text-slate-400 font-normal">學業成就</span></td>
+              <td class="py-3 px-4">數理均分全球第3，維持超高水準，但增長進入高原期。</td>
+              <td class="py-3 px-4">本校數理優勢在各年級是否均衡？學科分化從何時開始？</td>
+              <td class="py-3 px-4">構建 P1–S6 縱向螺旋課程地圖，確保核心概念連續推進，清除學段重複與斷層。</td>
+              <td class="py-3 px-4 font-medium text-slate-900"><span class="bg-blue-50 text-blue-700 px-2 py-0.5 rounded">數學組/理科組</span><br><span class="text-[10px] text-slate-500">年級縱向增值評量</span></td>
+            </tr>
+            <!-- Row 2 -->
+            <tr class="hover:bg-slate-50/80 transition">
+              <td class="py-3 px-4 font-bold text-brand-deep">② Low Performers<br><span class="text-[10px] text-slate-400 font-normal">低成就學生</span></td>
+              <td class="py-3 px-4">科學 &lt;L2 約 7.9%，數學底層分佈存在擴大隱憂。</td>
+              <td class="py-3 px-4">校內後 20% 學生究竟是誰？其未掌握的共通概念是什麼？</td>
+              <td class="py-3 px-4">建立 MTSS 多層級支援架構，落實每週針對性小組補底，嚴控全校學業不及格率。</td>
+              <td class="py-3 px-4 font-medium text-slate-900"><span class="bg-amber-50 text-amber-700 px-2 py-0.5 rounded">教務處/輔導組</span><br><span class="text-[10px] text-slate-500">後20%及格脫困率</span></td>
+            </tr>
+            <!-- Row 3 -->
+            <tr class="hover:bg-slate-50/80 transition">
+              <td class="py-3 px-4 font-bold text-brand-deep">③ Top Performers<br><span class="text-[10px] text-slate-400 font-normal">高成就學生</span></td>
+              <td class="py-3 px-4">數學 Level 5-6 達 29%，CPS 尖子達 53.7%，尖子群極龐大。</td>
+              <td class="py-3 px-4">頂尖 20% 學生是否在課堂上感到吃不飽？高階題目是否足夠？</td>
+              <td class="py-3 px-4">設立拔尖培優專項模組，引進高等數學建模、奧賽訓練及跨學科專題研究（PBL）。</td>
+              <td class="py-3 px-4 font-medium text-slate-900"><span class="bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded">資優組/各科組</span><br><span class="text-[10px] text-slate-500">高階情境題掌握&gt;80%</span></td>
+            </tr>
+            <!-- Row 4 -->
+            <tr class="hover:bg-slate-50/80 transition bg-rose-50/30">
+              <td class="py-3 px-4 font-bold text-rose-700">④ Reading<br><span class="text-[10px] text-rose-500 font-normal">閱讀素養 ⚠️</span></td>
+              <td class="py-3 px-4 text-rose-900">顯著下滑 9 分至 501，成為四大領域中最脆弱短板。</td>
+              <td class="py-3 px-4 text-rose-900">非語文科（數理社）課堂與考卷中，學科閱讀是否長期被忽視？</td>
+              <td class="py-3 px-4">發起全校「學科閱讀素養（Disciplinary Literacy）」運動，考卷引入非連續文本與情境辨析。</td>
+              <td class="py-3 px-4 font-medium text-slate-900"><span class="bg-rose-100 text-rose-800 px-2 py-0.5 rounded">全體學科組</span><br><span class="text-[10px] text-slate-500">非連續文本命題≥30%</span></td>
+            </tr>
+            <!-- Row 5 -->
+            <tr class="hover:bg-slate-50/80 transition">
+              <td class="py-3 px-4 font-bold text-brand-deep">⑤ Equity<br><span class="text-[10px] text-slate-400 font-normal">教育公平</span></td>
+              <td class="py-3 px-4">總體公平極佳（4%變異），但優勢與弱勢差距歷年有擴大跡象。</td>
+              <td class="py-3 px-4">校內弱勢背景學生是否在進階選修與科技活動中處於邊緣？</td>
+              <td class="py-3 px-4">實施弱勢學生學術扶持計劃，提供免費校內課後數位資源與專任學業導師配對。</td>
+              <td class="py-3 px-4 font-medium text-slate-900"><span class="bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded">教務處/總務處</span><br><span class="text-[10px] text-slate-500">弱勢學生高表現追蹤</span></td>
+            </tr>
+            <!-- Row 6 -->
+            <tr class="hover:bg-slate-50/80 transition">
+              <td class="py-3 px-4 font-bold text-brand-deep">⑥ CPS<br><span class="text-[10px] text-slate-400 font-normal">運算解難</span></td>
+              <td class="py-3 px-4">均分 572 全球第一，展現運算工具解難之驚人潛力。</td>
+              <td class="py-3 px-4">常態課程是否常態化培養學生的演算法思維、抽象建模與除錯？</td>
+              <td class="py-3 px-4">自小三起普及圖形化與文字編程，將運算思維工具深度嵌入數學與科學專題探究。</td>
+              <td class="py-3 px-4 font-medium text-slate-900"><span class="bg-teal-50 text-teal-700 px-2 py-0.5 rounded">資訊組/跨學科</span><br><span class="text-[10px] text-slate-500">編程專案普及率100%</span></td>
+            </tr>
+            <!-- Row 7 -->
+            <tr class="hover:bg-slate-50/80 transition bg-amber-50/30">
+              <td class="py-3 px-4 font-bold text-amber-800">⑦ Engagement<br><span class="text-[10px] text-amber-600 font-normal">學習投入 ⚠️</span></td>
+              <td class="py-3 px-4 text-amber-900">僅 58.1% 喜歡在校學新事物（落後 OECD 逾 10%），歸屬感低。</td>
+              <td class="py-3 px-4 text-amber-900">高分學生是否真正熱愛所學？課堂是否充斥枯燥的被動刷題？</td>
+              <td class="py-3 px-4">推動探究教學法，增加情境體驗、動手實驗與自主選題，重構學習內在驅動力。</td>
+              <td class="py-3 px-4 font-medium text-slate-900"><span class="bg-amber-100 text-amber-800 px-2 py-0.5 rounded">教研組/班主任</span><br><span class="text-[10px] text-slate-500">學生課堂投入滿意度</span></td>
+            </tr>
+            <!-- Row 8 -->
+            <tr class="hover:bg-slate-50/80 transition">
+              <td class="py-3 px-4 font-bold text-brand-deep">⑧ AI Pedagogy<br><span class="text-[10px] text-slate-400 font-normal">人工智能</span></td>
+              <td class="py-3 px-4">67% 每週用 AI，40% 用於作業初稿，存在高度認知外包風險。</td>
+              <td class="py-3 px-4">學生是在利用 AI 取代思考，還是利用 AI 拓展深度思維？</td>
+              <td class="py-3 px-4">制訂校本 AI 指引，推行 Q-V-R-E-R 批判思考五步法，禁止未標註之直接搬運。</td>
+              <td class="py-3 px-4 font-medium text-slate-900"><span class="bg-purple-50 text-purple-700 px-2 py-0.5 rounded">課發處/資訊組</span><br><span class="text-[10px] text-slate-500">AI批判作業認證率</span></td>
+            </tr>
+            <!-- Row 9 -->
+            <tr class="hover:bg-slate-50/80 transition">
+              <td class="py-3 px-4 font-bold text-brand-deep">⑨ Family<br><span class="text-[10px] text-slate-400 font-normal">家庭支持</span></td>
+              <td class="py-3 px-4">家庭學術溝通與情感支持指標相對落後。</td>
+              <td class="py-3 px-4">家長是否只關心排名分數，忽視了心理韌性與探索興趣的培養？</td>
+              <td class="py-3 px-4">舉辦現代素養與家庭共育工作坊，指導家長從「催促分數」轉向「傾聽與探究引導」。</td>
+              <td class="py-3 px-4 font-medium text-slate-900"><span class="bg-slate-100 text-slate-700 px-2 py-0.5 rounded">家校委員會</span><br><span class="text-[10px] text-slate-500">家長工作坊參與回饋</span></td>
+            </tr>
+            <!-- Row 10 -->
+            <tr class="hover:bg-slate-50/80 transition bg-red-50/20">
+              <td class="py-3 px-4 font-bold text-red-700">⑩ Digital Policy<br><span class="text-[10px] text-red-500 font-normal">數位管理 ⚡</span></td>
+              <td class="py-3 px-4 text-red-900">課堂受數位干擾學生科學重挫 24 分，負面衝擊極具破壞性。</td>
+              <td class="py-3 px-4 text-red-900">校內課堂平板/電腦使用是否存在注意力渙散與隱蔽玩樂？</td>
+              <td class="py-3 px-4">實施課堂數位專注「3D 策略」（任務設計、螢幕監管、軌跡診斷），杜絕非學習干擾。</td>
+              <td class="py-3 px-4 font-medium text-slate-900"><span class="bg-red-100 text-red-800 px-2 py-0.5 rounded">教導處/全體教師</span><br><span class="text-[10px] text-slate-500">課堂設備違規率為零</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 6: MTSS SUPPORT & AI PEDAGOGY -->
+    <section id="mtss" class="scroll-mt-28 space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-bold text-teal-600 uppercase tracking-wider">Chapter 6 · Support Architecture & AI</span>
+        <h3 class="text-2xl font-black text-brand-navy">MTSS 多層級支援架構與 AI「Q-V-R-E-R」思維五步法</h3>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- MTSS 4 Tiers (7 cols) -->
+        <div class="lg:col-span-7 bg-white rounded-xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h4 class="text-base font-bold text-slate-900 flex items-center gap-2">
+            <i class="fa-solid fa-layer-group text-teal-600"></i> MTSS 多層級支援架構（提升上限，守住底線）
+          </h4>
+          
+          <!-- Tier Enrichment -->
+          <div class="p-3.5 rounded-lg border-l-4 border-purple-500 bg-purple-50/50 flex justify-between items-center text-xs">
+            <div>
+              <span class="font-bold text-purple-900 block">Enrichment Tier · 拔尖卓越層（前 15–20% 尖子）</span>
+              <span class="text-slate-600">高等數學建模工作坊、科研 PBL、頂尖賽事輔導、大學先修先導課程</span>
+            </div>
+            <span class="text-[10px] bg-purple-100 text-purple-800 font-bold px-2 py-1 rounded">天花板拓展</span>
+          </div>
+
+          <!-- Tier 3 -->
+          <div class="p-3.5 rounded-lg border-l-4 border-rose-500 bg-rose-50/50 flex justify-between items-center text-xs">
+            <div>
+              <span class="font-bold text-rose-900 block">Tier 3 · 個別化深度介入（後 3–5% 重度困難）</span>
+              <span class="text-slate-600">駐校特教老師、心理輔導員與學科名師一對一個別化方案（IEP）</span>
+            </div>
+            <span class="text-[10px] bg-rose-100 text-rose-800 font-bold px-2 py-1 rounded">精準托底</span>
+          </div>
+
+          <!-- Tier 2 -->
+          <div class="p-3.5 rounded-lg border-l-4 border-amber-500 bg-amber-50/50 flex justify-between items-center text-xs">
+            <div>
+              <span class="font-bold text-amber-900 block">Tier 2 · 靶向小組補強（後 15–20% 學業邊緣）</span>
+              <span class="text-slate-600">每週 2 節固定「學科閱讀與建模思維強化組」，4–6 人微型小組阻斷分化</span>
+            </div>
+            <span class="text-[10px] bg-amber-100 text-amber-800 font-bold px-2 py-1 rounded">防跌攔截</span>
+          </div>
+
+          <!-- Tier 1 -->
+          <div class="p-3.5 rounded-lg border-l-4 border-teal-500 bg-teal-50/50 flex justify-between items-center text-xs">
+            <div>
+              <span class="font-bold text-teal-900 block">Tier 1 · 普及性高質量常態課堂（全體 100% 學生）</span>
+              <span class="text-slate-600">通用設計學習法（UDL）、多元表徵教學、情境化實踐，確保 80% 以上全員達標</span>
+            </div>
+            <span class="text-[10px] bg-teal-100 text-teal-800 font-bold px-2 py-1 rounded">基石普及</span>
+          </div>
+        </div>
+
+        <!-- AI Q-V-R-E-R 5 Steps (5 cols) -->
+        <div class="lg:col-span-5 bg-white rounded-xl p-6 shadow-sm border border-slate-200 flex flex-col justify-between">
+          <div>
+            <h4 class="text-base font-bold text-slate-900 flex items-center gap-2 mb-3">
+              <i class="fa-solid fa-robot text-purple-600"></i> AI「Q-V-R-E-R」批判思考五步法
+            </h4>
+            <div class="space-y-2 text-xs">
+              <div class="p-2 rounded bg-slate-50 border border-slate-100 flex items-start gap-2">
+                <span class="w-5 h-5 bg-purple-600 text-white font-bold rounded-full flex items-center justify-center text-[10px] flex-shrink-0">Q</span>
+                <div><strong>Questioning（精確提問）：</strong>拆解問題情境與邊界條件，不直接索取結論。</div>
+              </div>
+              <div class="p-2 rounded bg-slate-50 border border-slate-100 flex items-start gap-2">
+                <span class="w-5 h-5 bg-purple-600 text-white font-bold rounded-full flex items-center justify-center text-[10px] flex-shrink-0">V</span>
+                <div><strong>Verification（跨源查核）：</strong>嚴禁盲信，利用權威教材與物理實驗尋找 AI 幻覺。</div>
+              </div>
+              <div class="p-2 rounded bg-slate-50 border border-slate-100 flex items-start gap-2">
+                <span class="w-5 h-5 bg-purple-600 text-white font-bold rounded-full flex items-center justify-center text-[10px] flex-shrink-0">R</span>
+                <div><strong>Reasoning（獨立推論）：</strong>關閉 AI 視窗，用自身邏輯手寫推理對比，強化神經突觸。</div>
+              </div>
+              <div class="p-2 rounded bg-slate-50 border border-slate-100 flex items-start gap-2">
+                <span class="w-5 h-5 bg-purple-600 text-white font-bold rounded-full flex items-center justify-center text-[10px] flex-shrink-0">E</span>
+                <div><strong>Evaluation（批判評估）：</strong>檢視 AI 解法的局限、適用條件與潛在邏輯漏洞。</div>
+              </div>
+              <div class="p-2 rounded bg-slate-50 border border-slate-100 flex items-start gap-2">
+                <span class="w-5 h-5 bg-purple-600 text-white font-bold rounded-full flex items-center justify-center text-[10px] flex-shrink-0">R</span>
+                <div><strong>Reflection（元認知反思）：</strong>作業末尾附 150 字反思日記，記錄提問與思維進展。</div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-3 text-[11px] text-purple-700 bg-purple-50 p-2.5 rounded font-medium">
+            <i class="fa-solid fa-check-double"></i> 核心原則：以思維腳手架賦能思考，堅決杜絕無效複製與認知外包！
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: ROADMAP 2026-2028 -->
+    <section id="roadmap" class="scroll-mt-28 space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-bold text-rose-600 uppercase tracking-wider">Chapter 7 · Implementation Roadmap</span>
+        <h3 class="text-2xl font-black text-brand-navy">改革推進時間表與關鍵交付產物（2026–2028）</h3>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+        <!-- Phase 1 -->
+        <div class="bg-white p-5 rounded-xl border-t-4 border-slate-600 shadow-sm border border-slate-200">
+          <div class="text-[10px] font-bold text-slate-400 mb-1">2026 年 10 月 – 12 月</div>
+          <h4 class="text-sm font-bold text-slate-900 mb-2">第一階段 · 診斷標準期</h4>
+          <p class="text-slate-600 mb-3">成立校本 PISA 課程專案組，完成近三年試卷素養審計，發布命題指引。</p>
+          <div class="bg-slate-50 p-2 rounded text-[11px] text-slate-700">
+            <strong>交付：</strong>試卷審計報告、命題雙向細目表、MTSS 後 20% 預警名單
+          </div>
+        </div>
+
+        <!-- Phase 2 -->
+        <div class="bg-white p-5 rounded-xl border-t-4 border-sky-500 shadow-sm border border-slate-200">
+          <div class="text-[10px] font-bold text-sky-600 mb-1">2027 年 1 月 – 6 月</div>
+          <h4 class="text-sm font-bold text-slate-900 mb-2">第二階段 · 試點推行期</h4>
+          <p class="text-slate-600 mb-3">在 P4、S1 試點學科閱讀銜接；S2 試行 MTSS 二級補強；全校推行 AI QVRER。</p>
+          <div class="bg-sky-50 p-2 rounded text-[11px] text-sky-900">
+            <strong>交付：</strong>銜接單元示範教案、AI 批判作業範例庫、數位專注 3D 規範
+          </div>
+        </div>
+
+        <!-- Phase 3 -->
+        <div class="bg-white p-5 rounded-xl border-t-4 border-indigo-500 shadow-sm border border-slate-200">
+          <div class="text-[10px] font-bold text-indigo-600 mb-1">2027 年 9 月 – 2028 年 1 月</div>
+          <h4 class="text-sm font-bold text-slate-900 mb-2">第三階段 · 全面貫通期</h4>
+          <p class="text-slate-600 mb-3">上線四維分佈評量儀表板；完成 P1–S6 縱向課程地圖修訂；舉辦真實解難展示週。</p>
+          <div class="bg-indigo-50 p-2 rounded text-[11px] text-indigo-900">
+            <strong>交付：</strong>P1-S6 縱向課程手冊、新型評量看板全面投產、學習樂趣後測
+          </div>
+        </div>
+
+        <!-- Phase 4 -->
+        <div class="bg-white p-5 rounded-xl border-t-4 border-emerald-500 shadow-sm border border-slate-200">
+          <div class="text-[10px] font-bold text-emerald-600 mb-1">2028 年 2 月 – 7 月</div>
+          <h4 class="text-sm font-bold text-slate-900 mb-2">第四階段 · 複盤固化期</h4>
+          <p class="text-slate-600 mb-3">第一輪素養增值評估；檢驗 P10/P90 離散度與及格率達標情況，提煉長效機制。</p>
+          <div class="bg-emerald-50 p-2 rounded text-[11px] text-emerald-900">
+            <strong>交付：</strong>兩年成效評估報告、P10 提升驗收、校本優秀教學法案例集
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER & REFERENCES -->
+    <footer class="border-t border-slate-200 pt-8 pb-12 text-slate-500 text-xs space-y-4">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <div class="font-bold text-slate-700 text-sm">學校課程發展處 · 課程發展助理主任呈稿</div>
+          <div>校內研討專用文件 · OECD PISA 2025 澳門數據校本轉化項目</div>
+        </div>
+        <div class="flex items-center space-x-3 text-slate-400">
+          <a href="https://www.oecd.org/en/publications/pisa-2025-results-volume-i-country-notes_2d4ff9ea-en/macau-china_9815d707-en.html" target="_blank" class="hover:text-sky-600 transition flex items-center gap-1">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> OECD Macau Note
+          </a>
+          <span>·</span>
+          <a href="https://gpseducation.oecd.org/CountryProfile?primaryCountry=MAC&topic=PI&treshold=5" target="_blank" class="hover:text-sky-600 transition flex items-center gap-1">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Education GPS
+          </a>
+          <span>·</span>
+          <a href="https://www.gov.mo/zh-hans/news/934453/" target="_blank" class="hover:text-sky-600 transition flex items-center gap-1">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> 澳門教青局發布
+          </a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- JAVASCRIPT: CHARTS & INTERACTIVE LOGIC -->
+  <script>
+    // 1. Chart.js: Bar Chart (Macau vs Benchmarks)
+    const ctxBar = document.getElementById('benchmarkChart').getContext('2d');
+    new Chart(ctxBar, {
+      type: 'bar',
+      data: {
+        labels: ['澳門 (MAC)', '新加坡 (SGP)', '日本 (JPN)', '中華台北 (TPE)', '韓國 (KOR)', '香港 (HKG)', 'OECD 均分'],
+        datasets: [
+          {
+            label: '數學 (Math)',
+            data: [549, 575, 536, 547, 527, 540, 463],
+            backgroundColor: '#2563eb',
+            borderRadius: 4
+          },
+          {
+            label: '科學 (Science)',
+            data: [541, 561, 547, 537, 528, 520, 482],
+            backgroundColor: '#06b6d4',
+            borderRadius: 4
+          },
+          {
+            label: '閱讀 (Reading)',
+            data: [501, 543, 516, 515, 515, 500, 461],
+            backgroundColor: '#f43f5e',
+            borderRadius: 4
+          },
+          {
+            label: '運算解難 (CPS)',
+            data: [572, 565, 552, 558, 548, 545, 500],
+            backgroundColor: '#10b981',
+            borderRadius: 4
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                return `${context.dataset.label}: ${context.parsed.y} 分`;
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            min: 440,
+            max: 600,
+            grid: { color: '#f1f5f9' },
+            ticks: { font: { size: 11 } }
+          },
+          x: {
+            grid: { display: false },
+            ticks: { font: { size: 11, weight: '600' } }
+          }
+        }
+      }
+    });
+
+    // 2. Chart.js: Radar Chart (Macau Profile)
+    const ctxRadar = document.getElementById('radarChart').getContext('2d');
+    new Chart(ctxRadar, {
+      type: 'radar',
+      data: {
+        labels: [
+          '數理成就',
+          '運算思維 (CPS)',
+          '教育公平性',
+          '閱讀素養',
+          '學習樂趣投入',
+          'AI 普及程度'
+        ],
+        datasets: [
+          {
+            label: '澳門 (Macau)',
+            data: [92, 98, 96, 70, 52, 94],
+            fill: true,
+            backgroundColor: 'rgba(2, 132, 199, 0.25)',
+            borderColor: '#0284c7',
+            pointBackgroundColor: '#0284c7',
+            pointBorderColor: '#fff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: '#0284c7'
+          },
+          {
+            label: 'OECD 基準',
+            data: [65, 65, 75, 65, 75, 60],
+            fill: true,
+            backgroundColor: 'rgba(148, 163, 184, 0.2)',
+            borderColor: '#94a3b8',
+            borderDash: [4, 4],
+            pointBackgroundColor: '#94a3b8'
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        elements: { line: { borderWidth: 2 } },
+        scales: {
+          r: {
+            min: 40,
+            max: 100,
+            ticks: { display: false },
+            grid: { color: '#e2e8f0' },
+            pointLabels: { font: { size: 10, weight: '600' }, color: '#334155' }
+          }
+        },
+        plugins: {
+          legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 10 } } }
+        }
+      }
+    });
+
+    // 3. Matrix Real-Time Search & Filter
+    function filterMatrix() {
+      const input = document.getElementById('matrixSearch').value.toLowerCase();
+      const rows = document.querySelectorAll('#matrixBody tr');
+      rows.forEach(row => {
+        const text = row.innerText.toLowerCase();
+        row.style.display = text.includes(input) ? '' : 'none';
+      });
+    }
+
+    // 4. Toggle Presenter Mode
+    let presenterMode = false;
+    function togglePresenterMode() {
+      presenterMode = !presenterMode;
+      document.body.classList.toggle('presenter-mode', presenterMode);
+      const btnText = document.getElementById('presenterBtnText');
+      const btn = document.getElementById('presenterBtn');
+      if (presenterMode) {
+        btnText.innerText = '退出匯報模式';
+        btn.classList.replace('bg-sky-600', 'bg-amber-600');
+        btn.classList.replace('hover:bg-sky-500', 'hover:bg-amber-500');
+      } else {
+        btnText.innerText = '會議匯報模式';
+        btn.classList.replace('bg-amber-600', 'bg-sky-600');
+        btn.classList.replace('hover:bg-amber-500', 'hover:bg-sky-500');
+      }
+    }
+  </script>
+</body>
+</html>
